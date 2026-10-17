@@ -4,7 +4,7 @@
 has the details. Something not working: [troubleshooting](troubleshooting.md).
 
 ```sh
-herdr plugin install eliasstravik/herdr-projects
+herdr plugin install holiveiraa/herdr-projects
 ```
 
 ## What you need
@@ -25,7 +25,7 @@ build step there, which downloads the program. `--ref v1.2.1` takes a given rele
 To keep a checkout of your own instead:
 
 ```sh
-git clone https://github.com/eliasstravik/herdr-projects && cd herdr-projects
+git clone https://github.com/holiveiraa/herdr-projects && cd herdr-projects
 herdr plugin link "$PWD"          # hooks, the board's tab and the actions
 sh bin/run.sh install             # gets the program, writes its launcher, says how to put it on your PATH
 ```
