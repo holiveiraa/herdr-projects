@@ -80,7 +80,8 @@ pub fn fetch_branch(dir: &Path, b: &str) -> Res<()> {
         write(st.i("ok"), st.i("at"));
         let mut said = String::new();
         for i in 1..=TRIES {
-            match quiet_git(dir, &["fetch", "--no-tags", "origin", &spec], FETCH_MS) {
+            // Atomic fetch keeps Git 2.53's lock-file diagnostic, which the retry and recovery message need.
+            match quiet_git(dir, &["fetch", "--atomic", "--no-tags", "origin", &spec], FETCH_MS) {
                 Ok(_) => { write(n, now()); return Ok(()); }
                 Err(e) => said = e,
             }
